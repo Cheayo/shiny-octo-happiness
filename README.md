@@ -11,4 +11,4 @@ Sizer gadget. Scales any paper size to fit 36" or 42" paper rolls.
 
 4) Search for Gadgets and select one of the results mentioning Desktop and Gadgets together
 
-5) Sizer should appear. Double-click on it to open it.
+5) Sizer should be listed as an available Gadget. Double-click on it to launch it.
