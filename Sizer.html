@@ -1,0 +1,177 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Unicode" />
+		<title>Sizer</title>
+		<style type="text/css">
+		body
+        {
+            border: 5px gray;
+			border-style: double;
+			background-color: #EBFFD6;
+			width: 190px;
+            height: 400px;
+            font-family: arial;
+            font-size: 14px;
+        }
+        #gadgetContent
+        {
+			margin: auto;
+			text-align: center;
+		}
+		#inputs
+		{
+			padding: 5px;
+		}
+		input
+		{
+			color: gray;
+		}
+		button
+		{
+			width: 92%;
+			margin-top: 4px;
+		}
+		.picBoxes
+		{
+			margin-top: 20px;
+		}
+		span.size36
+		{
+			color: red;
+
+		}
+		span.size42
+		{
+			color: blue;
+
+		}
+		.leftText
+		{
+			height: 65px;
+			float: left;
+			text-align: right;
+			padding-top: 18px;
+			padding-bottom: 18px;
+		}
+		#tallLeftText
+		{
+			width: 35%;
+		}
+		#wideLeftText
+		{
+			width: 30%;
+		}
+		.pic
+		{
+			float: left;
+			clear: right;
+			height: 65px;
+			text-align: left;
+			padding-left: 4px;
+		}
+		#tallPic
+		{
+			width: 65%;
+		}
+		#widePic
+		{
+			width: 70%;
+		}
+		#horzPic
+		{
+			margin-top: 10px;
+		}
+		.bottomText
+		{
+			width: 100%;
+			height: 28px;
+			float: left;
+			padding-left: 6px;
+		}
+        </style>
+		
+		<script type="text/jscript" language="jscript">
+		function findSizes() {
+			document.getElementById("instructions").style.color = "black";
+			
+			var startVertical, startHoriz;
+			startVertical = parseFloat(document.getElementById("vertical").value);
+			startHoriz = parseFloat(document.getElementById("horiz").value);
+			
+			if (isNaN(startVertical) || startVertical <= 0 || isNaN(startHoriz) || startVertical <= 0) {
+				document.getElementById("instructions").style.color = "red";
+				document.getElementById("vertical36").innerHTML = "0&quot";
+				document.getElementById("vertical42").innerHTML = "0&quot";
+				document.getElementById("horiz36").innerHTML = "0&quot";
+				document.getElementById("horiz42").innerHTML = "0&quot";
+			} else {
+				var x36, x42, finalVertical36, finalVertical42, finalHoriz36, finalHoriz42;
+				
+				x36 = 36 / startHoriz;
+				x42 = 42 / startHoriz;
+				
+				finalVertical36 = Math.ceil(x36 * startVertical * 10) / 10;
+				finalVertical42 = Math.ceil(x42 * startVertical * 10) / 10;
+				
+				document.getElementById("vertical36").innerHTML = finalVertical36 + "&quot";
+				document.getElementById("vertical42").innerHTML = finalVertical42 + "&quot";
+				
+				x36 = 36 / startVertical;
+				x42 = 42 / startVertical;
+				
+				finalHoriz36 = Math.ceil(x36 * startHoriz * 10) / 10;
+				finalHoriz42 = Math.ceil(x42 * startHoriz * 10) / 10;
+				
+				document.getElementById("horiz36").innerHTML = finalHoriz36 + "&quot";
+				document.getElementById("horiz42").innerHTML = finalHoriz42 + "&quot";
+				
+			}
+			
+		}
+		</script>
+    </head>
+    
+    <body>
+        <div id="gadgetContent">
+			
+			<div id="instructions">Enter vertical and horizontal dimensions as numbers greater than 0.</div>
+			
+			<div id="inputs">
+				<input id="vertical" type="text" size="5" value="Vertical" onclick="this.value=''"> x 
+				<input id="horiz" type="text" size="5" value="Horizontal" onclick="this.value=''">
+				<button type="submit" onclick="findSizes()">Get sizes</button>
+			</div>
+			
+			<hr >
+
+			<div class="picBoxes">
+				<div id="tallLeftText" class="leftText">
+					<span id="vertical36" class="size36">0"</span><br />
+					<span id="vertical42" class="size42">0"</span>
+				</div>
+				<div id="tallPic" class="pic">
+					<img id="vertPic" src="Vert.png">
+				</div>
+				<div class="bottomText">
+					<span class="size36">36"</span><br />
+					<span class="size42">42"</span>
+				</div>
+				
+			<div class="picBoxes">
+				<div id="wideLeftText" class="leftText">
+					<span id="horiz36" class="size36">0"</span><br />
+					<span id="horiz42" class="size42">0"</span>
+				</div>
+				<div id="widePic" class="pic">
+					<img id="horzPic" src="Horz.png">
+				</div>
+				<div class="bottomText">
+					<span class="size36">36"</span><br />
+					<span class="size42">42"</span>
+				</div>
+			</div>
+
+        </div>
+		
+    </body>
+</html>
